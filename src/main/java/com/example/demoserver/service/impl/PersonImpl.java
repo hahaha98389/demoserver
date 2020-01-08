@@ -22,6 +22,8 @@ public class PersonImpl implements PersonInterface {
     public List<Person> getPerson() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         PersonExample personExample = new PersonExample();
+        PersonExample.Criteria criteria = personExample.createCriteria();
+        criteria.andNameEqualTo("xiaohui");
         List<Person> list = personMapper.selectByExample(personExample);
         return list;
     }
