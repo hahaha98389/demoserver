@@ -19,10 +19,10 @@ public class PersonImpl implements PersonInterface {
     PersonMapper personMapper;
 
     @Override
-    public Person getPerson() {
+    public List<Person> getPerson() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         PersonExample personExample = new PersonExample();
         List<Person> list = personMapper.selectByExample(personExample);
-        return list.get(0);
+        return list;
     }
 }
