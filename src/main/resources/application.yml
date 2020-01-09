@@ -30,10 +30,11 @@ da3:
     username: root
     password: mcmcmc
 
-#generator的配置
+
+#查找后得知，如果mapper类和mapper.xml不在同一个路径下时，mapper-locations就有用了，在pom.xml中配置
 mybatis:
-  mapper-locations: classpath:mapper/*.xml #必须要配置xml文件的文件的位置
-  type-aliases-package: com.example.demoserver.dao.interfaces #必须要配置mapper文件的文件的位置
+  mapper-locations: classpath:mapper/*.xml #指明xml文件的位置
+  type-aliases-package: com.example.demoserver.dao.interfaces #指明mapper文件的位置
 
 #注册中心配置
 eureka:
