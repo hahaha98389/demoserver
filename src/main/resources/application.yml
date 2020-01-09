@@ -19,14 +19,14 @@ spring:
 da2:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/da2?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/da2?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: mcmcmc
 #da3Êý¾Ý¿â
 da3:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/da3?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/da3?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: mcmcmc
 
