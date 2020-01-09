@@ -7,6 +7,7 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+
 #数据库连接
   datasource:
     username: root
@@ -14,15 +15,32 @@ spring:
     url: jdbc:mysql://localhost:3306/da1?useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
 
+#da2数据库
+da2:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/da2?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: mcmcmc
+#da3数据库
+da3:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/da3?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: mcmcmc
+
+#generator的配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml #必须要配置xml文件的文件的位置
   type-aliases-package: com.example.demoserver.dao.interfaces #必须要配置mapper文件的文件的位置
 
-
+#注册中心配置
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
       defaultZone: http://localhost:19091/eureka
+
 #redis配置
 #Redis服务器地址
 redis:
