@@ -33,7 +33,7 @@ da3:
 
 #查找后得知，如果mapper类和mapper.xml不在同一个路径下时，mapper-locations就有用了，在pom.xml中配置
 mybatis:
-  mapper-locations: classpath:mapper/*.xml #指明xml文件的位置
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/da2/*.xml,classpath:mapper/da3/*.xml #指明xml文件的位置
   type-aliases-package: com.example.demoserver.dao.interfaces #指明mapper文件的位置
 
 #注册中心配置
