@@ -23,7 +23,7 @@ import java.util.List;
 @EnableSwagger2
 public class Swagger2Configuration implements WebMvcConfigurer {
 
-    @Bean
+   /* @Bean
     public Docket createRestApi() {
         // 参数配置
         List<Parameter> pars = new ArrayList<Parameter>();
@@ -54,9 +54,9 @@ public class Swagger2Configuration implements WebMvcConfigurer {
                 .build();
     }
 
-    /**
+    *//**
      * 静态资源配置
-     */
+     *//*
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations(
@@ -66,6 +66,6 @@ public class Swagger2Configuration implements WebMvcConfigurer {
         registry.addResourceHandler("/webjars/**").addResourceLocations(
                 "classpath:/META-INF/resources/webjars/");
 
-    }
+    }*/
 
 }
