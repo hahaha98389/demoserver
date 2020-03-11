@@ -24,7 +24,7 @@ public class PersonImpl implements PersonInterface {
         PersonExample personExample = new PersonExample();
         PersonExample.Criteria criteria = personExample.createCriteria();
         criteria.andNameEqualTo("xiaohui");
-        List<Person> list = personMapper.selectByExample(personExample);
+        List<Person>  list = personMapper.selectByExample(personExample);
         return list;
     }
 }
