@@ -6,7 +6,7 @@
     <!-- 导入配置文件 -->
     <properties resource="application.yml"/>
 
-    <classPathEntry location="C:/applications/resp/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar"/>
+    <classPathEntry location="E:\repo\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
     <!--不能使用反斜杠-->
 
     <!-- defaultModelType="flat" 设置复合主键时不单独为主键创建实体 -->
@@ -25,18 +25,18 @@
         <!-- 数据库连接，直接通过${}读取application.properties里的配置 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/da2?useSSL=false"
+                connectionURL="jdbc:mysql://localhost:3306/da3?useSSL=false"
                 userId="root"
                 password="mcmcmc"/>
 
         <!-- 生成POJO对象，并将类放到com.songguoliang.springboot.entity包下 -->
-        <javaModelGenerator targetPackage="com.example.demoserver.dao.po.da2" targetProject="src/main/java"></javaModelGenerator>
+        <javaModelGenerator targetPackage="com.example.demoserver.dao.po.da3" targetProject="src/main/java"></javaModelGenerator>
         <!-- 生成mapper xml文件，并放到resources下的mapper文件夹下 -->
-        <sqlMapGenerator targetPackage="mapper/da2"  targetProject="src/main/resources"></sqlMapGenerator>
+        <sqlMapGenerator targetPackage="mapper/da3"  targetProject="src/main/resources"></sqlMapGenerator>
 
 
         <!-- 生成mapper xml对应dao接口，放到com.songguoliang.springboot.mapper包下-->
-        <javaClientGenerator targetPackage="com.example.demoserver.dao.interfaces.da2" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
+        <javaClientGenerator targetPackage="com.example.demoserver.dao.interfaces.da3" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
 
         <!-- table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符 -->
         <!--<table tableName="person">
@@ -46,7 +46,7 @@
             <domainObjectRenamingRule searchString="^Tbl" replaceString=""/>
         </table>-->
 
-        <table tableName="money">
+        <table tableName="user">
             <!-- 是否只生成POJO对象 -->
             <property name="modelOnly" value="false"/>
             <!-- 数据库中表名有时我们都会带个前缀，而实体又不想带前缀，这个配置可以把实体的前缀去掉 -->

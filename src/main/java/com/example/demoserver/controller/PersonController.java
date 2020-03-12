@@ -1,6 +1,6 @@
 package com.example.demoserver.controller;
 
-import com.example.demoserver.dao.po.Person;
+import com.example.demoserver.dao.po.da1.Person;
 import com.example.demoserver.service.interfaces.PersonInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

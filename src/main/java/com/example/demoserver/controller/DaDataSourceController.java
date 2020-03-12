@@ -8,7 +8,6 @@ import com.example.demoserver.dao.po.da3.User;
 import com.example.demoserver.dao.po.da3.UserExample;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

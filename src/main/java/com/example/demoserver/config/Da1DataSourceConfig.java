@@ -14,37 +14,29 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-
-/**
- * @program:
- * @description:
- * @author:
- * @create:
- * @version: 1.0
- **/
 @Configuration
 // 扫描 Mapper 接口并容器管理
-@MapperScan(basePackages = Da2DataSourceConfig.PACKAGE, sqlSessionFactoryRef = "da2SqlSessionFactory")
-public class Da2DataSourceConfig {
-
+@MapperScan(basePackages = Da1DataSourceConfig.PACKAGE, sqlSessionFactoryRef = "da1SqlSessionFactory")
+public class Da1DataSourceConfig {
 
     // 精确到 master 目录，以便跟其他数据源隔离
-    static final String PACKAGE = "com.example.demoserver.dao.interfaces.da2";
-    static final String MAPPER_LOCATION = "classpath:mapper/da2/*.xml";
+    static final String PACKAGE = "com.example.demoserver.dao.interfaces.da1";
+    static final String MAPPER_LOCATION = "classpath:mapper/da1/*.xml";
 
-    @Value("${da2.datasource.url}")
+    @Value("${da1.datasource.url}")
     private String url;
 
-    @Value("${da2.datasource.username}")
+    @Value("${da1.datasource.username}")
     private String user;
 
-    @Value("${da2.datasource.password}")
+    @Value("${da1.datasource.password}")
     private String password;
 
-    @Value("${da2.datasource.driver-class-name}")
+    @Value("${da1.datasource.driver-class-name}")
     private String driverClass;
 
-    @Bean(name = "da2DataSource")
+    @Bean(name = "da1DataSource")
+    @Primary
     public DataSource masterDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClass);
@@ -54,19 +46,20 @@ public class Da2DataSourceConfig {
         return dataSource;
     }
 
-    @Bean(name = "da2TransactionManager")
+    @Bean(name = "da1TransactionManager")
+    @Primary
     public DataSourceTransactionManager masterTransactionManager() {
         return new DataSourceTransactionManager(masterDataSource());
     }
 
-    @Bean(name = "da2SqlSessionFactory")
-    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("da2DataSource") DataSource masterDataSource)
+    @Bean(name = "da1SqlSessionFactory")
+    @Primary
+    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("da1DataSource") DataSource masterDataSource)
             throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(masterDataSource);
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(Da2DataSourceConfig.MAPPER_LOCATION));
+                .getResources(Da1DataSourceConfig.MAPPER_LOCATION));
         return sessionFactory.getObject();
     }
-
 }

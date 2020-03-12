@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 //SpringbootApplication 禁止加载自身对DataSource的扫描
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@MapperScan("com.example.demoserver.dao.interfaces")
+//@MapperScan("com.example.demoserver.dao.interfaces")
 //@SpringBootApplication
 public class DemoserverApplication {
 

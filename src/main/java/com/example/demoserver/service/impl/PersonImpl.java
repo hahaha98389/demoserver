@@ -1,8 +1,8 @@
 package com.example.demoserver.service.impl;
 
-import com.example.demoserver.dao.interfaces.PersonMapper;
-import com.example.demoserver.dao.po.Person;
-import com.example.demoserver.dao.po.PersonExample;
+import com.example.demoserver.dao.interfaces.da1.PersonMapper;
+import com.example.demoserver.dao.po.da1.Person;
+import com.example.demoserver.dao.po.da1.PersonExample;
 import com.example.demoserver.service.interfaces.PersonInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class PersonImpl implements PersonInterface {
         PersonExample personExample = new PersonExample();
         PersonExample.Criteria criteria = personExample.createCriteria();
         criteria.andNameEqualTo("xiaohui");
-        List<Person>  list = personMapper.selectByExample(personExample);
+        List<Person> list = personMapper.selectByExample(personExample);
         return list;
     }
 }
